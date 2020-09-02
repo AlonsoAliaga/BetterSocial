@@ -5,7 +5,7 @@ This plugin adds something that allows player share their social media without u
 \
 **This plugin does NOT include any verification system.**
 ## Resources
-- [Spigot resource](https://www.spigotmc.org/resources/X/)
+- [Spigot resource](https://www.spigotmc.org/resources/83437/)
 - [Issue tracker](https://github.com/AlonsoAliaga/BetterSocial/issues)
 - [Donate](https://paypal.me/AlonsoAliaga)
 - [bStats](https://bstats.org/plugin/bukkit/BetterSocial)
