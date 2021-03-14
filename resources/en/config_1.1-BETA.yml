@@ -1,0 +1,194 @@
+#             ___      _   _           ___          _      _
+#            | _ ) ___| |_| |_ ___ _ _/ __| ___  __(_)__ _| |
+#            | _ \/ -_)  _|  _/ -_) '_\__ \/ _ \/ _| / _` | |
+#            |___/\___|\__|\__\___|_| |___/\___/\__|_\__,_|_|
+#                           by AlonsoAliaga
+#          https://www.spigotmc.org/resources/authors/281176/
+#              Support server: alonsoaliaga.com/discord
+#        Subscribe to my Youtube channel: alonsoaliaga.com/play
+#          Subscribe to my Twitch: alonsoaliaga.com/twitch
+#           Donate using Paypal: alonsoaliaga.com/donate
+Messages:
+  No-permission: "&cYou don't have permission to do this."
+  No-permission-edit: "&cYou don't have permission edit your social media :("
+  Reloaded: "&aSome messages and options have been reloaded. Other may require a restart!"
+  Invalid-player: "&cPlayer is not online!"
+  Invalid-player-in-database: "&cPlayer is not registered in the server!"
+  Unknown-error: "&cUnexpected error! Try again later, if problem persists contact an administrator."
+  Unknown-error-search-other: "&cUnexpected error! Try again later, if problem persists contact an administrator."
+  No-input: "&cYou didn't provide a valid input. Social media will not be updated!"
+  Please-reconnect: "&cUnexpected error! Please reconnect to the server."
+  Please-reconnect-other: "&cUnexpected error! Please tell {PLAYER} to reconnect to the server."
+  Keys:
+    None: "&cNone"
+  Social:
+    Title: "&8Social Media: {PLAYER}"
+  Remove:
+    Not-linked: "&cThis social media is not linked."
+    Removed: "&cYou removed this social media link."
+  Placeholders:
+    Value-none: "None"
+    Status-linked: "&aLinked"
+    Status-unlinked: "&cNot linked"
+  Help:
+    Admin:
+      - "&9 /bettersocial edit <player> &f- &bOpen edit GUI for player"
+      - "&9 /bettersocial <menu/media> <player> &f- &bOpen media GUI"
+      - "&9 /bettersocial reload &f- &bReload configuration"
+    User:
+      - "&9 /bettersocial edit &f- &bOpen edit GUI"
+      - "&9 /bettersocial menu <player> &f- &bOpen media GUI"
+
+Permissions:
+  Admin: "bettersocial.admin"
+  #Permission to be able to open "/bettersocial edit" to edit social media.
+  Edit: "none" #Example: "bettersocial.edit"
+  #Permission to check others social media. Set to "none" to disable.
+  Others: "none" #Example: "bettersocial.others"
+  #Permission to check offline players' social media. Set to "none" to disable.
+  Offline: "bettersocial.offline"
+
+Options:
+  #To apply changes for aliases you must RESTART the server.
+  #Plugman or similar plugins are NOT and will NEVER be supported.
+  #Use /reload or restart your server.
+  Aliases:
+  - "social"
+  - "bsocial"
+  #Enable only if developer asks you to do it.
+  Debug-mode: false
+  #Should we fill empty slots?
+  Fill-empty-slots: false
+  #Amount of rows the inventory will have. Minimum 1, maximum 6.
+  Size: 4
+  #This command will be run as the player that views the profile.
+  #Set to "none" to disable command. Available placeholders:
+  # {TARGET} replaced by player name (The name of the player that views the profile)
+  # {PLAYER} replaced by target name (The name of the player owner of the profile)
+  #This is the command that will be run when clicking back button while editing social media.
+  Back-edit-command: "none" #Example: "profile {PLAYER}"
+  #This is the command that will be run when clicking back button while viewing social media.
+  Back-media-command: "none" #Example: "profile {TARGET}"
+  Sounds:
+    #Sound when opening a player's media.
+    Open: "CHEST_OPEN"
+
+Items:
+  Player:
+    #Set to -1 to disable.
+    Slot: 30
+    #Item added if target player IS online.
+    #Supports PlaceholderAPI. Default placeholder available.
+    #Placeholders will be updated for the target player.
+    # {PLAYER} replaced with profile owner name.
+    # {VIEWER} replaced by the name of the player viewing the profile.
+    Online:
+      Displayname: "&a&l{PLAYER}"
+      Lore:
+      - "&fGamemode: &7%player_gamemode%"
+      - "&fHealth: &7%player_health_rounded%"
+      - "&fFirst join: &7%player_first_join_date%"
+      #Command that will be run if player clicks the item.
+      #Placeholder available are: {PLAYER} replaced by profile owner name.
+      #{VIEWER} replaced with viewer name.
+      Command: "none" #Example: "tell {PLAYER} Hello!"
+    #Item added if target player IS online.
+    #DON'T SUPPORT PlaceholderAPI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #Default placeholder available.
+    # {PLAYER} replaced with profile owner name.
+    # {VIEWER} replaced by the name of the player viewing the profile.
+    Offline:
+      Displayname: "&c&l{PLAYER}"
+      Lore:
+      - "&7Profile owner doesn't seem to be online :("
+      #Command that will be run if player clicks the item.
+      #Remember player is offline so use only commands that support offline players.
+      #Placeholder available are: {PLAYER} replaced by profile owner name.
+      #{VIEWER} replaced with viewer name.
+      Command: "none" #Example: "mail {PLAYER} Hello! I'm {VIEWER}!"
+  Back:
+    Material: ARROW
+    Slot: 31
+    Displayname: "&aBack"
+    #Placeholder available is {PLAYER} replaced by viewer name.
+    # {TARGET} replaced by the name of the owner of the social media.
+    #The name of the player that owns the profile.
+    #Supports PlaceholderAPI if available. Information replaced by the viewer's data.
+    Lore:
+    - "&7Go to {TARGET}"
+  Media:
+    #Used if link is less than 32 than characters.
+    Lore-short:
+    - "&7Current: &e{CURRENT}&r"
+    - " "
+    - "&eLeft click to change!"
+    - "&eRight click to remove!"
+    - " "
+    - "&cEveryone will be able to"
+    - "&cread your information."
+    #Used if link is greater or equal than 32 characters.
+    Lore-long:
+    - "&7Current:"
+    - "&e{CURRENT}&r"
+    - " "
+    - "&eLeft click to change!"
+    - "&eRight click to remove!"
+    - " "
+    - "&cEveryone will be able to"
+    - "&cread your information."
+  No-media:
+    Material: GLASS_BOTTLE
+    Slot: 13
+    Displayname: "&cNo social media :("
+    #Placeholders available {PLAYER} replaced by player name.
+    #Supports PlaceholderAPI if available.
+    Lore:
+    - "&7{PLAYER} doesn't have"
+    - "&7any social media linked"
+    - "&7to his account."
+  Visit:
+    Available:
+      Lore:
+      - "&eClick to visit"
+    Unavailable:
+      Lore:
+      - "&7Not linked :("
+  Frame:
+    Color: "BLACK"
+    #Only 1.14+
+    Custom-model-data: 0
+
+Database:
+  #Available types: MySQL and SQLite
+  #You can use MySQL to make it global or you can use SQLite to make it local.
+  #MySQL requires a server (local or external)
+  #SQLite doesn't require anything, it's saved in a db file in the folder.
+  Type: "SQLite"
+  Table: "bettersocial"
+  #If type is SQLite
+  File: "database-bettersocial"
+  #If type is MySQL
+  Host: 127.0.0.1
+  Port: 3306
+  Database: "bettersocial"
+  Username: "root"
+  Password: "12345"
+  #Modify this just if you know what you are doing.
+  #This will be added at the end of database url (Not in SQLITE, only in MySQL).
+  #Useful if you want to set useSSL or autoReconnect or any other modifier.
+  Additional-url: ""
+  #Used to keep connection alive to prevent connection timeout.
+  #Time in minutes. Recommended 30. Minimum 5.
+  Keep-connection-interval: 30
+
+Updates:
+  #Auto update configuration? Enabling will delete comments.
+  Auto-update-configuration: true
+  #Check for updates? Recommended to keep it enabled.
+  Check-updates: true
+  #Notify updates when player with permission joins the server?
+  Notify-updates: true
+  #Permission required to receive update message.
+  Permission: "bettersocial.update"
+  #Message to send when update is found.
+  Message: "&9[BetterSocial] &eA new update has been found! You are using version {CURRENT}. Download version {NEW} here &c{LINK}"
