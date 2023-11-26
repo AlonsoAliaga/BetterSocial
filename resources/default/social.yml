@@ -1,8 +1,5 @@
 #From BetterSocial version 1.4-BETA
 
-# THIS FILE WAS UPDATED TO ADD NEW CONFIGURATIONS TO social.yml IN NEWER VERSIONS.
-# MANY COMMENTS HAVE BEEN DELETED! IF NEED HELP CHECK DEFAULT CONFIG IN A FRESH INSTALLATION!
-
 #Social media items, you can add up to 53 social medias.
 #Why not 54??? Because inventories have 54 slots and 1 is required for the back button. 54 - 1 = 53
 Social:
